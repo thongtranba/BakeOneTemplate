@@ -1,0 +1,401 @@
+body {
+	max-width: 1020px;
+	margin: auto;
+}
+/*khai báo font*/
+@font-face {
+	font-family: Lato-regular;
+	src: url(..//font/lato/Lato-Regular.ttf);
+}
+@font-face {
+	font-family: Lato-light;
+	src: url(../font/lato/Lato-Light.ttf);
+}
+@font-face {
+	font-family: Lato-lightItalic;
+	src: url(../font/lato/Lato-LightItalic.ttf);
+}
+@font-face {
+	font-family: Lato-Italic;
+	src: url(../font/lato/Lato-Italic.ttf);
+}
+@font-face {
+	font-family: Lato-Bold;
+	src: url(../font/lato/Lato-Bold.ttf);
+}
+
+/*.navbar {
+	padding-top: 19px;
+	padding-bottom: 19px;
+}*/
+/*gán thuộc tính font, font size, màu chữ cho menu*/
+.navbar-light .navbar-nav .nav-link {
+	font-family: Lato-regular;
+	font-size: 14px;
+	color: rgb(4,4,4);
+	margin-right: 3px;
+	padding-left: 13px;
+	padding-right: 13px;
+}
+
+/*gán thuộc tính hover cho thẻ và thuộc tính cho thẻ home luôn active*/
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link:hover {
+	color: #ffffff;
+	background-color: #1bbc9b;
+}
+/*header*/
+/*chiều cao của header*/
+.navbar {
+	padding-top: 19px;
+	padding-bottom: 19px;
+}
+/*hiệu chỉnh thanh menu hiện khi bắt đầu qua trang portfolio
+fixed-top là cố định so với cửa sổ trình duyệt*/
+.navbar.fixed-top {
+	background-color: rgb(255,255,5,0.6);
+	padding-top: 0px;
+	padding-bottom: 0px;
+	/*hiệu ứng chuyển động*/
+	animation: 2s menuAnimation;
+
+}
+/*hiệu ứng chuyển động từ ẩn sáng hiện và ngước lại. lưu ý opacity từ 0-1, và vị trí transform từ -100 - 0*/
+@keyframes menuAnimation {
+	from {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.navbar.fixed-top .container-fluid {
+	max-width: 1020px;
+}
+.dummy-padding {
+	padding-top: 95px;
+}
+
+/*main*/
+.home{
+	background-image: url(../images/banner.jpg);
+	background-size: cover;
+	background-position: center;
+	font-family: Lato-light;
+	color: #ffffff;
+	padding-top: 72px;
+	padding-bottom: 82px;
+
+}
+.home h1 {
+	font-size: 55px;
+	margin-bottom: 30px;
+}
+.home h1 strong {
+	font-family: Lato-Bold;
+}
+.home p {
+	font-size: 18px;
+	max-width: 580px;
+	margin: auto;
+	margin-bottom: 47px;
+}
+button {
+	line-height: 37px;
+	font-family: Lato-Bold;
+	font-size: 13px;
+	background-color: #1bbc9b;
+	color: #ffffff;
+	border: none;
+	letter-spacing: 2px;
+	/*padding canh trái phải, giữ nguyên trên/dưới*/
+	padding: 0 13px;
+	margin-bottom: 45px;
+}
+/*.home button {
+	line-height: 37px;
+	font-family: Lato-Bold;
+	font-size: 13px;
+	background-color: #1bbc9b;
+	color: #ffffff;
+	khoảng cách từ content đến border: padding 
+	padding: 0 13px;
+	border: none;
+	/*khoảng cách từ phần tử này đến phần tử khách: margin
+	margin-bottom: 42px;
+	}*/
+.portfolio {
+	padding-top: 50px;
+		/*margin bottom : 61px - 34px(margin-bottom img) = 27px*/
+		padding-bottom: 27px;
+		font-family: Lato-regular;
+		color: #444444;
+
+		/*chiều rộng của chia 4 hình tròn*/
+		max-width: 956px;
+}
+.portfolio h2 {
+		font-size: 28px;
+		margin-bottom: 11px;
+}
+.portfolio p {
+		font-size: 16px;
+		margin-bottom: 36px;
+}
+.portfolio button{
+/*	font-family: Lato-Bold;
+	font-size: 13px;
+	background-color: #1bbc9b;
+	color: #ffffff;
+	padding: 13px;
+	border: none;*/
+	margin-right: 8px;
+	margin-left: 8px;
+	margin-bottom: 45px;
+}
+.portfolio img {
+	/*margin-bottom: 34px;*/
+}
+/*hover logo và đường dẫn trên logo*/
+.portfolio .box{
+	/*posibtion relative đặt tương đối so sanh với chính nó*/
+	position: relative;
+	/*chuyển sang inline-block để set margin*/
+	display: inline-block;
+	/*chuyển margin-bottom của img -> class box*/
+	margin-bottom: 34px;
+}
+.portfolio .box .overlay {
+	/*hiệu chỉnh vùng logo ẩn/hiện*/
+	background-image: url(../images/background.png);
+	/*position absolute đặt tương đối so sánh với thẻ cha*/
+	position: absolute; 
+	width: 100%;
+	height: 100%;
+	top:0;
+	border-radius: 50%;
+	/*canh chỉnh nội dung bên trong hiệu ứng ẩn hiện*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffffff;
+	/*hiệu ứng ẩn hiệu theo time*/
+	transition: 1s ease;
+	transform: scale(0);
+}
+/*hiệu chỉnh thuộc tính cho thẻ cn span thứ nhất*/
+.portfolio .box .overlay .content span:nth-of-type(1){
+	/*thêm nền cho logo i*/
+	width: 44px;
+	line-height: 44px;
+	background-image: url("../images/icon.png");
+	border-radius: 50%;
+	/*chuyển qua inline block để set magin*/
+	display: inline-block;
+	font-size: 21px;
+	margin-bottom: 18px;
+}
+/*hiệu chỉnh thuộc tính cho thẻ con span thứ 2*/
+.portfolio .box .overlay .content span:nth-of-type(2){
+	font-size: 18px;
+	margin-bottom: 8px;
+}
+/*hiệu chỉnh thuộc tính cho thẻ con span thứ 3*/
+.portfolio .box .overlay .content span:nth-of-type(3) {
+	font-size: 14px;
+}
+/*hiệu chỉnh thuộc tính cho phần tử hover trong thẻ box*/
+.portfolio .box:hover .overlay {
+	transform: scale(1);
+}
+.about {
+	background-color: #16a086;
+	padding-top: 53px;
+	/*70-20=54px*/
+	padding-bottom: 54px;
+	font-family: lato-regular;
+	color: #fff;
+}
+.about .container-fluid {
+	max-width: 840px;
+}
+.about h2 {
+	font-size: 28px;
+	margin-bottom: 12px;
+}
+.about .container-fluid >p{
+	font-size: 14px;
+	margin-bottom: 42px;
+}
+.about .box {
+	width: 220px;
+	background-color: white;
+	color: #444444;
+	margin: auto;
+	padding-top: 18px;
+	padding-bottom: 15px;
+
+	/*	/*margin ??? */
+	margin-bottom: 20px;
+}
+.about .box h3 {
+	font-size: 18px;
+	margin-bottom: 4px;
+}
+.about .box span {
+	font-size: 18px;
+	font-family: Lato-Italic;
+	margin-bottom: 18px;
+	/*thẻ span là thẻ dạng inline nên cần đổi qua inline-block để set width/height/margin*/
+	display: inline-block;
+}
+.about .box p {
+	font-size: 14px;
+	text-align: left;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+/*đặt tương đối so sánh với chính nó*/
+.about .card-box {
+	position: relative;
+}
+.about .card-box .overlay {
+	/*đặt tương đối so sánh với cha trực tiếp, khác giá trị static*/
+	/*posiotion absolute + top/left + transform: translate*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/*dịch chuyển 2D*/
+	transform: translate(-50%,-50%);
+	/*hiệu chỉnh thẻ i bên trong*/
+	background-image: url(../images/background.png);
+	width: 180px;
+	line-height: 48px;
+	color: #ffffff;
+	font-size: 29px;
+	/*hiệu chỉnh khoảng cách các thẻ i bên trong*/
+	/*sư dụng display flex và justify-content: space-around*/
+	display: flex;
+	justify-content: space-around;
+	/*hiệu ứng ẩn/hiện*/
+	opacity: 0;
+	transition: 1s ease;
+
+}
+/*đèn màu của thẻ i*/
+.about .card-box .overlay i {
+	color: #ffffff !important;
+}
+/*hiệu ứng cho phần tử hover trong card-box*/
+.about .card-box:hover .overlay {
+	opacity: 1;
+}
+
+.contact {
+	padding-top: 49px;
+	padding-bottom: 70px;
+	font-family: Lato-regular;
+	color: #444;
+}
+.contact h2 {
+	font-size: 28px;
+	margin-bottom: 11px;
+}
+.contact p {
+	font-size: 14px;
+	margin-bottom: 51px;
+}
+.contact input{
+	height: 43px;
+	border: 2px solid  #bec3c7;
+	border-radius: 0;
+	margin-bottom: 22px;
+}
+.contact textarea {
+	height: 149px;
+	border: 2px solid  #bec3c7;
+	border-radius: 0;
+	margin-bottom: 23px;
+}
+.contact ::placeholder {
+	font-size: 14px;
+	font-family: Lato-Italic;
+	color: #999999;
+}
+.contact button{
+	padding:  0 28px;
+	margin-bottom: 0;	
+}
+.contact h3 {
+	font-size: 14px;
+	color: #444444;
+	margin-bottom: 20px;
+}
+.contact address {
+	font-size: 14px;
+	margin-bottom: 25px;
+}
+.contact address p {
+	margin: 0;
+	margin-left: 5px;
+	margin-top: -5px;
+}
+.contact address ~p {
+	font-size: 14px;
+	margin-bottom: 18px;
+}
+
+
+footer {
+	line-height: 87px;
+	background-color: #2d3e50;
+	color: #f6f6f7;	
+}
+footer .backtotop {
+	/*hiệu chỉnh thuộc tính thẻ thành inlinebock và set width/height*/
+	line-height: 44px;
+	width: 44px;
+	display: inline-block;
+	/*hiệu chỉnh mầu sắc nền, phần tử và canh giữa*/
+	background-color: #1bbc9b;
+	text-align: center;
+	color: #ffffff;
+	/*hiệu chỉnh vị trí position fiex (vị trí tương đối theo khung cửa số) và set vị trí*/
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}
+/*hiệu chỉnh thanh menu cho màn hình dưới 992px*/
+@media only screen and (max-width: 992px) {
+	.navbar-collapse {
+		/*position absolute là so sánh gia trị với thẻ cha trực tiếp*/
+		position: absolute;
+		/*set vị trí của postion absolute*/
+		top: 100%;
+		width: 100%;
+		left: 0;
+		background-color: rgb(128,128,128,0.7);
+	}
+	/*hiệu chỉnh khoảng cách các phần tử home, portfolio... trên và dưới 5px*/
+	.navbar-light .navbar-nav .nav-link {
+		margin: 5px 0;
+	}
+	.narbar {
+		padding-top: 0;
+		padding-bottom: 0;
+
+	}
+	.navbar-toggler {
+		margin-bottom: 0;
+	}
+	.dummy-padding {
+		padding-top: 57px;
+	}
+
+}
+.portfolio button.active {
+	background-color: yellow !important;
+	color: red !important;
+}
